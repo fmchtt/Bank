@@ -1,0 +1,180 @@
+<main class="container">
+  <div
+    class="modal fade"
+    id="newLoanModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Criar novo Emprestimo
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nomeInput" class="form-label">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nomeInput"
+                name="name"
+                aria-describedby="emailHelp"
+                [(ngModel)]="name"
+              />
+              <div id="nameHelp" class="form-text">
+                Nome para localizar seu emprestimo. ex: 'casa'
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="valueInput" class="form-label">Valor</label>
+              <input
+                type="number"
+                class="form-control"
+                id="valueInput"
+                name="value"
+                [(ngModel)]="value"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="installmentInput" class="form-label">Parcelas</label>
+              <input
+                type="number"
+                class="form-control"
+                id="installmentInput"
+                name="installment"
+                [(ngModel)]="installment"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            (click)="create()"
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+          >
+            Criar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="installmentPay"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adiantar Parcelas</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="installmentInput" class="form-label">Parcelas</label>
+              <input
+                type="number"
+                class="form-control"
+                id="installmentInput"
+                name="installment"
+                [(ngModel)]="installmentsToPay"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            (click)="payInstallments()"
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+          >
+            Pagar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="row bg-main-color p-4">
+    <h1>Empréstimo</h1>
+  </header>
+  <div class="page-body">
+    <div class="my-3">
+      <button
+        type="button"
+        class="btn btn-success"
+        data-bs-toggle="modal"
+        data-bs-target="#newLoanModal"
+      >
+        Pedir novo empréstimo
+      </button>
+    </div>
+    <div class="bg-main-color py-3 my-4 text-center">
+      <h4>Empréstimos Ativos</h4>
+    </div>
+    <div *ngFor="let loan of loans">
+      <div *ngIf="loan.id != undefined" class="my-4">
+        <h2>{{ loan.name }}</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Valor Desejado:</p>
+            <p>Parcelas:</p>
+            <p>Data do Pedido:</p>
+            <p>Valor Restante:</p>
+            <p>Parcelas Restantes:</p>
+          </div>
+          <div class="col-md-6 text-end">
+            <p>R$ {{ loan.value }}</p>
+            <p>{{ loan.installment }}x</p>
+            <p>{{ loan.dateStart }}</p>
+            <p>R$ {{ loan.remainingValue }}</p>
+            <p>{{ loan.remainingInstallments }}x</p>
+          </div>
+        </div>
+        <button
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#installmentPay"
+          (click)="setLoanId(loan.id)"
+        >
+          Adiantar Parcelas
+        </button>
+      </div>
+      <hr />
+    </div>
+  </div>
+</main>

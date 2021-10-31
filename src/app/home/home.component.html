@@ -1,0 +1,34 @@
+<main class="container">
+  <header class="row bg-main-color p-4">
+    <div class="col-md-5">
+      <h3 *ngIf="account">Olá, {{ account.name }}</h3>
+      <!--<input placeholder="Pesquisar" /> -->
+    </div>
+    <div class="col-md-5"></div>
+    <div class="col-md-2 text-end">
+      <p>Saldo Atual</p>
+      <p *ngIf="account" class="money">R$ {{ account.balance }}</p>
+      <button type='button' (click)='logout()' class="btn btn-secondary">Sair</button>
+    </div>
+  </header>
+  <div class="row my-4 p-4">
+    <a routerLink="/extrato" class="col-md-3 d-flex align-items-center m-3">
+      <div class="circle me-2"></div>
+      <p class="fs-5">Extrato</p>
+    </a>
+    <a routerLink="/pix" class="col-md-3 d-flex align-items-center m-3">
+      <div class="circle me-2 d-flex align-items-center justify-content-center">
+        <img width="80%" src="assets/logo-pix.svg" />
+      </div>
+      <p class="fs-5">Tranferências PIX</p>
+    </a>
+    <a routerLink="/poupanca" class="col-md-3 d-flex align-items-center m-3">
+      <div class="circle me-2"></div>
+      <p class="fs-5">Poupança</p>
+    </a>
+    <a routerLink="/emprestimo" class="col-md-3 d-flex align-items-center m-3">
+      <div class="circle me-2"></div>
+      <p class="fs-5">Empréstimo</p>
+    </a>
+  </div>
+</main>

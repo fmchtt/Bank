@@ -1,0 +1,262 @@
+{
+  "accounts": [
+    {
+      "id": 0,
+      "name": "Marcos Torres",
+      "email": "marcosfoda@gmail.com",
+      "password": "123456789",
+      "balance": 135545.12,
+      "savingBalance": 887000.25
+    },
+    {
+      "id": 1,
+      "name": "Italo",
+      "email": "a226856106@fumec.edu.br",
+      "password": "fumec",
+      "balance": 0,
+      "savingBalance": 1.5
+    },
+    {
+      "name": "Tiao Santos",
+      "email": "tiao@gmail.com",
+      "password": "12345",
+      "balance": 0,
+      "savingBalance": 0,
+      "id": 2
+    }
+  ],
+  "loans": [
+    {
+      "id": 0,
+      "accountId": 0,
+      "name": "Carro",
+      "value": 70000,
+      "installment": 48,
+      "dateStart": "18/09/2021",
+      "remainingValue": 61250,
+      "remainingInstallments": 42
+    },
+    {
+      "id": 1,
+      "accountId": 0,
+      "name": "Casa",
+      "value": 240000,
+      "installment": 72,
+      "dateStart": "18/09/2021",
+      "remainingValue": 240000,
+      "remainingInstallments": 72
+    },
+    {
+      "value": 7000,
+      "name": "Celular",
+      "installment": 36,
+      "remainingValue": 7000,
+      "dateStart": "20/10/2021",
+      "remainingInstallments": 36,
+      "accountId": "0",
+      "id": 2
+    },
+    {
+      "value": 7000,
+      "name": "Celular",
+      "installment": 36,
+      "remainingValue": 7000,
+      "dateStart": "20/10/2021",
+      "remainingInstallments": 36,
+      "accountId": 0,
+      "id": 3
+    },
+    {
+      "value": 8000,
+      "name": "Celular",
+      "installment": 8,
+      "remainingValue": 8000,
+      "dateStart": "31/10/2021",
+      "remainingInstallments": 8,
+      "accountId": 2,
+      "id": 4
+    }
+  ],
+  "pixKeys": [
+    {
+      "type": "phoneNumber",
+      "name": "Celular",
+      "key": "31777777777",
+      "accountId": 0,
+      "id": 1
+    }
+  ],
+  "transactions": [
+    {
+      "id": 0,
+      "accountId": 0,
+      "name": "PIX - Pagamento",
+      "value": -1500,
+      "receiver": "Ítalo Baciliere",
+      "operation": "pixTransfer",
+      "date": "01/09/2021"
+    },
+    {
+      "id": 1,
+      "accountId": 0,
+      "name": "Pagamento de conta",
+      "value": -1000,
+      "receiver": "Fume",
+      "operation": "debit",
+      "date": "01/09/2021"
+    },
+    {
+      "id": 2,
+      "accountId": 0,
+      "name": "Pagamento de conta",
+      "value": -200,
+      "receiver": "CEMIG S/A",
+      "operation": "debit",
+      "date": "11/09/2021"
+    },
+    {
+      "id": 3,
+      "accountId": 0,
+      "name": "Transferência",
+      "value": -300,
+      "receiver": "Bradesco - C/c",
+      "operation": "debit",
+      "date": "18/09/2021"
+    },
+    {
+      "id": 4,
+      "accountId": 0,
+      "name": "Salário",
+      "value": 1300,
+      "receiver": "Empresa Possivel",
+      "operation": "credit",
+      "date": "18/09/2021"
+    },
+    {
+      "id": 5,
+      "accountId": 0,
+      "name": "Dinheiro guardado na poupaça",
+      "value": 1300,
+      "receiver": "Você",
+      "operation": "savingCredit",
+      "date": "18/09/2021"
+    },
+    {
+      "name": "Pedido de emprestimo",
+      "receiver": "Bank",
+      "operation": "credit",
+      "value": 5,
+      "date": "16/10/2021",
+      "accountId": 0,
+      "id": 6
+    },
+    {
+      "name": "Pedido de emprestimo",
+      "receiver": "Bank",
+      "operation": "credit",
+      "value": 5,
+      "date": "16/10/2021",
+      "accountId": 0,
+      "id": 7
+    },
+    {
+      "name": "Dinheiro Resgatado da poupança",
+      "receiver": "Você",
+      "operation": "savingDebit",
+      "value": -50000,
+      "date": "16/10/2021",
+      "accountId": 0,
+      "id": 8
+    },
+    {
+      "name": "Dinheiro Resgatado da poupança",
+      "receiver": "Você",
+      "operation": "credit",
+      "value": 50000,
+      "date": "16/10/2021",
+      "accountId": 0,
+      "id": 9
+    },
+    {
+      "name": "Adiantamento de parcelas de emprestimo",
+      "receiver": "Bank",
+      "operation": "debit",
+      "value": -5,
+      "date": "16/10/2021",
+      "accountId": "0",
+      "id": 10
+    },
+    {
+      "name": "Dinheiro Guardado da poupança",
+      "receiver": "Você",
+      "operation": "savingCredit",
+      "value": 7000,
+      "date": "20/10/2021",
+      "accountId": 0,
+      "id": 11
+    },
+    {
+      "name": "Dinheiro Guardado da poupança",
+      "receiver": "Você",
+      "operation": "debit",
+      "value": -7000,
+      "date": "20/10/2021",
+      "accountId": 0,
+      "id": 12
+    },
+    {
+      "name": "Dinheiro Resgatado da poupança",
+      "receiver": "Você",
+      "operation": "savingDebit",
+      "value": -70000,
+      "date": "20/10/2021",
+      "accountId": 0,
+      "id": 13
+    },
+    {
+      "name": "Dinheiro Resgatado da poupança",
+      "receiver": "Você",
+      "operation": "credit",
+      "value": 70000,
+      "date": "20/10/2021",
+      "accountId": 0,
+      "id": 14
+    },
+    {
+      "name": "Adiantamento de parcelas de emprestimo",
+      "receiver": "Bank",
+      "operation": "debit",
+      "value": -8750,
+      "date": "20/10/2021",
+      "accountId": "0",
+      "id": 15
+    },
+    {
+      "name": "Pedido de emprestimo",
+      "receiver": "Bank",
+      "operation": "credit",
+      "value": 7000,
+      "date": "20/10/2021",
+      "accountId": "0",
+      "id": 16
+    },
+    {
+      "name": "Pedido de emprestimo",
+      "receiver": "Bank",
+      "operation": "credit",
+      "value": 7000,
+      "date": "20/10/2021",
+      "accountId": 0,
+      "id": 17
+    },
+    {
+      "name": "Pedido de emprestimo",
+      "receiver": "Bank",
+      "operation": "credit",
+      "value": 8000,
+      "date": "31/10/2021",
+      "accountId": 2,
+      "id": 18
+    }
+  ]
+}

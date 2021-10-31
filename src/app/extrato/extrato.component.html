@@ -1,0 +1,23 @@
+<main class="container">
+  <header class="row bg-main-color p-4">
+    <h1>Extrato</h1>
+  </header>
+  <div class="bg-main-color py-3 my-4 text-center">
+    <h3>Ultimas Transações</h3>
+  </div>
+  <div>
+    <div *ngFor="let transaction of transactions">
+      <div class="row">
+        <div class="col-md-6">
+          <p>{{transaction.name}}</p>
+          <p>{{transaction.receiver}}</p>
+        </div>
+        <div class="col-md-6 text-end">
+          <p>{{transaction.date}}</p>
+          <p>R$ {{transaction.value}}</p>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </div>
+</main>

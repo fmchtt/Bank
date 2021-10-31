@@ -1,0 +1,33 @@
+<main class="container" widht="100vh">
+  <header class="row bg-main-color p-4">
+    <h1>Entrar</h1>
+  </header>
+  <div class="row mt-4">
+    <div class="col-md-3"></div>
+    <form class="col-md-6">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name='email'
+          [(ngModel)]='email'
+        />
+      </div>
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          id="senha"
+          name='password'
+          [(ngModel)]='password'
+        />
+      </div>
+      <button type="submit" (click)='login()' class="btn btn-success">Entrar</button>
+      <a routerLink="/register" class="btn btn-primary mx-2">Registrar</a>
+    </form>
+    <div class="col-md-3"></div>
+  </div>
+</main>

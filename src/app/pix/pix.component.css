@@ -1,0 +1,8 @@
+main {
+  background-color: var(--bs-gray-100);
+}
+
+#buttons {
+  border-radius: 50px;
+  width: 40%;
+}

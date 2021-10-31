@@ -1,0 +1,219 @@
+<main class="container">
+  <div
+    class="modal fade"
+    id="pixKeys"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Minhas Chaves</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <h2 *ngIf="keys && keys.length === 0">
+            Você não tem nenhuma chave cadastrada!
+          </h2>
+          <div class="row" *ngFor="let key of keys">
+            <div class="col-md-6">
+              <h5>Nome: {{ key.name }}</h5>
+              <h6 *ngIf="key.type === 'phoneNumber'">
+                Tipo: Numero de Telefone
+              </h6>
+              <h6 *ngIf="key.type === 'cpf'">Tipo: CPF</h6>
+            </div>
+            <div class="col-md-6">
+              <p>Chave: {{ key.key }}</p>
+            </div>
+            <hr />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+            Sair
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="transferModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Minhas Chaves</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="keyToTransfer" class="form-label">Chave</label>
+              <input
+                type="text"
+                class="form-control"
+                id="keyToTransfer"
+                name="keyToTransfer"
+                [(ngModel)]="keyToTransfer"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="value" class="form-label">Valor</label>
+              <input
+                type="number"
+                class="form-control"
+                id="value"
+                name="value"
+                [(ngModel)]="value"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Sair
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="tranferMoney()"
+          >
+            Transferir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="keyAdd"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Cadastrar Chave PIX
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                [(ngModel)]="name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="type" class="form-label">Tipo</label>
+              <select
+                id="type"
+                class="form-select"
+                aria-label="Escolha"
+                name="type"
+                [(ngModel)]="type"
+              >
+                <option selected>Escolha</option>
+                <option value="phoneNumber">Numero de Telefone</option>
+                <option value="cpf">CPF</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="key" class="form-label">Chave</label>
+              <input
+                type="text"
+                class="form-control"
+                id="key"
+                name="key"
+                [(ngModel)]="key"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="createKey()"
+          >
+            Cadastrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="d-flex align-items-center bg-main-color p-4">
+    <img class="me-4" src="assets/logo-pix.svg" />
+    <h1>PIX</h1>
+  </header>
+  <div class="bg-white my-4 p-4 text-center mx-auto" id="buttons">
+    <button class="btn" data-bs-toggle="modal" data-bs-target="#pixKeys">
+      Minhas Chaves
+    </button>
+    <hr />
+    <button class="btn" data-bs-toggle="modal" data-bs-target="#keyAdd">
+      Cadastrar chave PIX
+    </button>
+    <hr />
+    <button class="btn" data-bs-toggle="modal" data-bs-target="#transferModal">
+      Transferência por PIX
+    </button>
+  </div>
+  <div class="bg-main-color py-3 my-4 text-center">
+    <h4>Ultimas Transações</h4>
+  </div>
+  <div *ngFor="let transaction of transactions">
+    <div class="row">
+      <div class="col-md-6">
+        <p>{{ transaction.name }}</p>
+        <p>{{ transaction.receiver }}</p>
+      </div>
+      <div class="col-md-6 text-end">
+        <p>{{ transaction.date }}</p>
+        <p>R$ {{ transaction.value }}</p>
+      </div>
+    </div>
+    <hr />
+  </div>
+</main>
